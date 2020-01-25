@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-local_hook="$HOME"/.git_template.local/hooks/prepare-commit-msg
-
-if [ -f "$local_hook" ]; then
-  . "$local_hook"
+set -e
+if [ -f scripts/lib/git-hooks/util/run-hook.sh ]; then
+  source scripts/lib/git-hooks/util/run-hook.sh
+  run_hook "$@"
 fi
